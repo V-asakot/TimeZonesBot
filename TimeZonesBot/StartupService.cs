@@ -15,13 +15,13 @@ namespace TimeZonesBot
         public static IServiceProvider provider;
         private readonly DiscordSocketClient discord;
         private readonly CommandService commands;
+        private string token = "xxx";
         public StartupService(IServiceProvider _provider, DiscordSocketClient discord, CommandService commands){
             this.commands = commands;
             provider = _provider;
             this.discord = discord;
         }
         public async Task startAsync() {
-            string token = "xxx";
             if (string.IsNullOrEmpty(token)) {
                 Console.WriteLine("Incorect token");
                 return;
