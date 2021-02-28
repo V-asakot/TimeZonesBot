@@ -25,8 +25,7 @@ namespace TimeZonesBot
         }
         public async Task startAsync() {
 
-            if (settings.IsLoaded()) token = settings.GetToken(); else return;
-            Console.WriteLine(token);
+            if (settings.IsLoaded()) { token = settings.GetToken(); } else { Console.WriteLine("Settings file not loaded"); return; }
             if (string.IsNullOrEmpty(token)) {
                 Console.WriteLine("Incorect token");
                 return;
