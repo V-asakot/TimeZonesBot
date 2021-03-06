@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TimeZonesBotInfrastructure;
 
 
 namespace TimeZonesBot
@@ -34,15 +34,18 @@ namespace TimeZonesBot
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(new DiscordSocketClient(new DiscordSocketConfig {
+            services.AddSingleton(new DiscordSocketClient(new DiscordSocketConfig
+            {
                 LogLevel = Discord.LogSeverity.Verbose,
                 MessageCacheSize = 1000
-            })).AddSingleton(new CommandService(new CommandServiceConfig {
+            })).AddSingleton(new CommandService(new CommandServiceConfig
+            {
                 LogLevel = Discord.LogSeverity.Verbose,
                 DefaultRunMode = RunMode.Async,
                 CaseSensitiveCommands = false
 
-            })).AddSingleton<CommandHandler>().AddSingleton<StartupService>();
+            })).AddSingleton<CommandHandler>().AddSingleton<StartupService>().AddDbContext<TimeZonesBotContext>().AddSingleton<Servers>().AddSingleton<TimeZones>();
+           
 
         }
     }

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeZonesBot", "TimeZonesBot\TimeZonesBot.csproj", "{682D8A73-9532-4C91-AE13-28DF6BDB308A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "TimeZonesBotInfrastructure\Infrastructure.csproj", "{78B972F4-7E27-489C-99BB-D2DA270576FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{682D8A73-9532-4C91-AE13-28DF6BDB308A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{682D8A73-9532-4C91-AE13-28DF6BDB308A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{682D8A73-9532-4C91-AE13-28DF6BDB308A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78B972F4-7E27-489C-99BB-D2DA270576FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B972F4-7E27-489C-99BB-D2DA270576FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B972F4-7E27-489C-99BB-D2DA270576FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B972F4-7E27-489C-99BB-D2DA270576FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {059B5B7C-38C6-460E-9EE2-4FBAFE781896}
 	EndGlobalSection
 EndGlobal
