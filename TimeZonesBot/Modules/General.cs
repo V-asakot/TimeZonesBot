@@ -18,19 +18,6 @@ namespace TimeZonesBot.Modules
             _zones = zones;
         }
 
-        [Command("info")]
-        public async Task Info()
-        {
-            var builder = new EmbedBuilder()
-            .WithThumbnailUrl(Context.User.GetAvatarUrl()??Context.User.GetDefaultAvatarUrl())
-            .WithDescription("User Time")
-            .WithColor(new Color(41,128,185))
-            .WithCurrentTimestamp();
-
-            var embed = builder.Build();
-            await Context.Channel.SendMessageAsync(null,false,embed);
-        }
-
         [Command("prefix")]
         [RequireUserPermission(Discord.GuildPermission.Administrator)]
         public async Task Prefix(string prefix=null)
@@ -47,6 +34,26 @@ namespace TimeZonesBot.Modules
             }
             await Context.Channel.SendMessageAsync($"Changed prefix of bot to: {prefix}");
             await _servers.ModifyGuildPrefix(Context.Guild.Id,prefix);
+        }
+
+        [Command("help")]
+        public async Task Help(){
+            string commands = @"help - gives you list of commands
+
+prefix <new prefix> - let you set different commands prefix for this server(require administrator rights)
+
+set <time zone> [user name] - sets time zone for you on this discord server (or you can do it for another user if have administrator rights)
+
+time [user name] - returns current time and time zone of user on this server
+";
+            var builder = new EmbedBuilder()
+           .WithDescription(commands)
+           .WithTitle("List of commands")
+           .WithColor(new Color(41, 128, 185))
+           .WithCurrentTimestamp();
+
+            var embed = builder.Build();
+            await Context.Channel.SendMessageAsync(null, false, embed);
         }
 
     }

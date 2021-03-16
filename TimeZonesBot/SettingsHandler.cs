@@ -9,27 +9,27 @@ using Newtonsoft.Json;
 namespace TimeZonesBot
 {
     class Settings {
-        private string token;
-        public string Token { get => token; set => token = value; }
+        private string _token;
+        public string Token { get => _token; set => _token = value; }
 
     }
     class SettingsHandler
     {
-        private Settings settings;
+        private Settings _settings;
         public SettingsHandler(string filePath) {
-            settings = File.Exists("settings.json") ? JsonConvert.DeserializeObject<Settings>(File.ReadAllText("settings.json")) : null;
-            if (settings == null) Console.WriteLine("Settings was not loaded");
+            _settings = File.Exists("settings.json") ? JsonConvert.DeserializeObject<Settings>(File.ReadAllText("settings.json")) : null;
+            if (_settings == null) Console.WriteLine("Settings was not loaded");
         }
 
         public string GetToken()
         {
 
-            if (settings == null) return "Token not loaded";
-            return settings.Token;
+            if (_settings == null) return "Token not loaded";
+            return _settings.Token;
         }
 
         public bool IsLoaded() {
-            return settings != null;
+            return _settings != null;
         }
          
     }
